@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Todo</title>
+	</head>
+
+	<style type="text/css">
+
+		body {
+			font-family: sans-serif;
+			font-size: 1.5em;
+		}
+
+		table {
+			width: 500px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 5px;
+			border: 1px solid black;
+			border-spacing: 0;
+		}
+
+	</style>
+
+<body>
+
+	<!-- main table -->
+	<table>
+
+		<!-- headers -->
+		<tr>
+			<th>Done</th>
+			<th>Title</th> 
+			<th>Actions</th>
+		</tr>
+
+		{% for t in todo %}
+		
+			<tr>
+
+				<!-- done -->
+				<td>
+					{% if t.done %}
+						<input type="checkbox" value="True" checked>
+					{% else %}
+						<input type="checkbox">
+					{% endif %}
+				</td>
+				
+				<!-- title -->
+				<td>{{ t.title }}</td>
+				
+				<!-- actions -->
+				<td>
+					<a href="#">Edit</a>
+					<a href="#">Delete</a>
+				</td>
+
+			</tr>
+
+		{% endfor  %}
+
+	</table>
+	
+	<!-- create a new task -->
+	<a href="{{ url_for('create_todo') }}">New task</a>
+
+</body>
+
+</html>

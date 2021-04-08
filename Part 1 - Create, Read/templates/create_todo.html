@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Todo</title>
+	</head>
+
+	<style type="text/css">
+
+		body {
+			font-family: sans-serif;
+			font-size: 1.5em;
+		}
+
+		table {
+			width: 500px;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 5px;
+			border: 1px solid black;
+			border-spacing: 0;
+		}
+
+		span {
+			color: red;
+			font-size: 0.5em;
+		}
+
+	</style>
+
+<body>
+
+	<form action="" method="POST">
+		{{ form.hidden_tag() }}
+
+		<!-- title -->
+		<p>{{ form.title.label }}</p>
+		{{ form.title }}
+
+		<!-- title errors -->
+		{% if form.title.errors %}
+			{% for error in form.title.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+		{% endif %}
+
+		<!-- desc -->
+		<p>{{ form.description.label }}</p>
+		{{ form.description }}
+
+		<!-- description errors -->
+		{% if form.description.errors %}
+			{% for error in form.description.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+		{% endif %}
+
+		<!-- done -->
+		<p>{{ form.done.label }}</p>
+		{{ form.done }}
+
+		<!-- submit -->
+		<p>{{ form.submit.label }}</p>
+		{{ form.submit }}
+
+	</form>
+
+</body>
+
+</html>
